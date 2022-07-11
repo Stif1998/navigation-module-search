@@ -10,16 +10,21 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onStartupFinished"
+        "onCommand:navigation-module-search.moduleSearch"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "navigation-module-search.helloWorld",
-				"title": "Hello World"
+				"command": "navigation-module-search.moduleSearch",
+				"title": "Module Search"
 			}
-		]
+		],
+		"keybindings": [{
+		  	"command": "navigation-module-search.moduleSearch",
+		  	"key": "ctrl+m ctrl+m",
+		  	"mac": "cmd+m cmd+m"
+		}]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
