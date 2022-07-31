@@ -2,7 +2,8 @@ import * as vscode from 'vscode';
 
 export class GetSearchResults
 {
-    getSearchResultsFiles = async function () {
+    getSearchResultsFiles = async function (componentNames: Array<string>) {
+
         await vscode.commands.executeCommand('search.action.copyAll');
         let results = await vscode.env.clipboard.readText();
 

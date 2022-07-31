@@ -3,27 +3,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GroupResults = void 0;
 class GroupResults {
     constructor() {
-        this.groupResultModules = function (resultArray) {
-            let groupedResults = {
-                "banking-app": 0,
-                "cash-desk-app": 0,
-                "inventory-app": 0,
-                "payment-app": 0,
-                "others": 0
-            };
+        this.groupResultModules = function (components, resultArray) {
+            let results = [];
+            for (let i in components) {
+                let componentResult = {
+                    componentName: components[i],
+                    resultAmount: 0
+                };
+                results.push(componentResult);
+            }
             resultArray.forEach((path) => {
-                let found = false;
-                Object.keys(groupedResults).forEach((key) => {
-                    if (!found && path.includes(key)) {
-                        groupedResults[key] = groupedResults[key] + 1;
-                        found = true;
+                for (let i = 0; i < results.length; ++i) {
+                    if (path.toLowerCase().includes(results.at(i).componentName.toLowerCase())) {
+                        results.at(i).resultAmount = results.at(i).resultAmount + 1;
                     }
-                });
-                if (!found) {
-                    groupedResults.others = groupedResults.others + 1;
                 }
             });
-            return groupedResults;
+            return results;
         };
     }
 }

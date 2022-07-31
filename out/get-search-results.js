@@ -4,7 +4,7 @@ exports.GetSearchResults = void 0;
 const vscode = require("vscode");
 class GetSearchResults {
     constructor() {
-        this.getSearchResultsFiles = async function () {
+        this.getSearchResultsFiles = async function (componentNames) {
             await vscode.commands.executeCommand('search.action.copyAll');
             let results = await vscode.env.clipboard.readText();
             if (results) {

@@ -10,27 +10,17 @@
 		  "Other"
 	  ],
 	  "activationEvents": [
-		  "onCommand:navigation-module-search.moduleSearch",
 		  "onCommand:navigation-module-search.plantUmlModuleSearch"
 	  ],
 	  "main": "./out/extension.js",
 	  "contributes": {
 		  "commands": [
 			  {
-				  "command": "navigation-module-search.moduleSearch",
-				  "title": "Module Search"
-			  },
-			  {
 				  "command": "navigation-module-search.plantUmlModuleSearch",
 				  "title": "PlantUML Module Search"
 			  }
 		  ],
 		  "keybindings": [
-			  {
-					"command": "navigation-module-search.moduleSearch",
-					"key": "ctrl+m ctrl+m",
-					"mac": "cmd+m cmd+m"
-			  }, 
 			  {
 				  "command": "navigation-module-search.plantUmlModuleSearch",
 				  "key": "ctrl+n ctrl+n",

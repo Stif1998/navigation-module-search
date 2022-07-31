@@ -1,36 +1,29 @@
-export type GroupedResult = {
-	"banking-app": number, 
-	"cash-desk-app": number, 
-	"inventory-app": number, 
-	"payment-app": number, 
-	"others": number
-};
+export type ComponentResultAmount = {
+	componentName: string, 
+	resultAmount: number
+}
 
 export class GroupResults
 {
-    groupResultModules = function (resultArray: Array<string>): GroupedResult {
-	let groupedResults: GroupedResult = {
-		"banking-app": 0, 
-		"cash-desk-app": 0, 
-		"inventory-app": 0, 
-		"payment-app": 0, 
-		"others": 0
-	};
-	type GroupedResultKey = keyof typeof groupedResults;
+    groupResultModules = function (components: Array<string>, resultArray: Array<string>): Array<ComponentResultAmount> {
+		let results: Array<ComponentResultAmount> = [];
+		
+		for (let i in components){
+			
+			let componentResult: ComponentResultAmount = {
+				componentName: components[i],
+				resultAmount: 0
+			}
+			results.push(componentResult);
+		}
 
-	resultArray.forEach((path: string) => {
-		let found = false;
-		Object.keys(groupedResults).forEach((key: string)  => {
-			if (!found && path.includes(key)) {
-				groupedResults[key as GroupedResultKey] = groupedResults[key as GroupedResultKey] + 1;
-				found = true
+		resultArray.forEach((path: string) => {
+			for (let i = 0; i < results.length; ++i){
+				if (path.toLowerCase().includes(results.at(i)!.componentName.toLowerCase())){
+					results.at(i)!.resultAmount = results.at(i)!.resultAmount + 1;
+				}
 			}
 		});
-		if (!found){
-			groupedResults.others = groupedResults.others + 1;
-		}
-	});
-
-	return groupedResults;
+		return results;
 	}
 }
