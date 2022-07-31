@@ -19,6 +19,14 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 		);
 	});
+
+	let TERMINAL_ID = 1;
+	
+	vscode.commands.registerCommand('navigation-module-search.plantUmlModuleSearch', () => {
+		vscode.window.showInformationMessage('');
+		const terminal = vscode.window.createTerminal(`Ext Terminal #${TERMINAL_ID++}`);
+		terminal.sendText("java -jar lib/plantuml-1.2022.6.jar PlantUMLText.txt");
+	});
 }
 
 export function deactivate() {}

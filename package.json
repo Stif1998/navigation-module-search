@@ -1,50 +1,62 @@
 {
-  "name": "navigation-module-search",
-	"displayName": "navigation-module-search",
-	"description": "",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.69.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-        "onCommand:navigation-module-search.moduleSearch"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "navigation-module-search.moduleSearch",
-				"title": "Module Search"
-			}
-		],
-		"keybindings": [{
-		  	"command": "navigation-module-search.moduleSearch",
-		  	"key": "ctrl+m ctrl+m",
-		  	"mac": "cmd+m cmd+m"
-		}]
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile && npm run lint",
-		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/vscode": "^1.69.0",
-		"@types/glob": "^7.2.0",
-		"@types/mocha": "^9.1.1",
-		"@types/node": "16.x",
-		"@typescript-eslint/eslint-plugin": "^5.30.0",
-		"@typescript-eslint/parser": "^5.30.0",
-		"eslint": "^8.18.0",
-		"glob": "^8.0.3",
-		"mocha": "^10.0.0",
-		"typescript": "^4.7.4",
-		"@vscode/test-electron": "^2.1.5"
-	}
-}
+	"name": "navigation-module-search",
+	  "displayName": "navigation-module-search",
+	  "description": "",
+	  "version": "0.0.1",
+	  "engines": {
+		  "vscode": "^1.69.0"
+	  },
+	  "categories": [
+		  "Other"
+	  ],
+	  "activationEvents": [
+		  "onCommand:navigation-module-search.moduleSearch",
+		  "onCommand:navigation-module-search.plantUmlModuleSearch"
+	  ],
+	  "main": "./out/extension.js",
+	  "contributes": {
+		  "commands": [
+			  {
+				  "command": "navigation-module-search.moduleSearch",
+				  "title": "Module Search"
+			  },
+			  {
+				  "command": "navigation-module-search.plantUmlModuleSearch",
+				  "title": "PlantUML Module Search"
+			  }
+		  ],
+		  "keybindings": [
+			  {
+					"command": "navigation-module-search.moduleSearch",
+					"key": "ctrl+m ctrl+m",
+					"mac": "cmd+m cmd+m"
+			  }, 
+			  {
+				  "command": "navigation-module-search.plantUmlModuleSearch",
+				  "key": "ctrl+n ctrl+n",
+				  "mac": "cmd+n cmd+n"
+			  }]
+	  },
+	  "scripts": {
+		  "vscode:prepublish": "npm run compile",
+		  "compile": "tsc -p ./",
+		  "watch": "tsc -watch -p ./",
+		  "pretest": "npm run compile && npm run lint",
+		  "lint": "eslint src --ext ts",
+		  "test": "node ./out/test/runTest.js"
+	  },
+	  "devDependencies": {
+		  "@types/vscode": "^1.69.0",
+		  "@types/glob": "^7.2.0",
+		  "@types/mocha": "^9.1.1",
+		  "@types/node": "16.x",
+		  "@typescript-eslint/eslint-plugin": "^5.30.0",
+		  "@typescript-eslint/parser": "^5.30.0",
+		  "eslint": "^8.18.0",
+		  "glob": "^8.0.3",
+		  "mocha": "^10.0.0",
+		  "typescript": "^4.7.4",
+		  "@vscode/test-electron": "^2.1.5"
+	  }
+  }
+  
